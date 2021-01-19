@@ -78,7 +78,8 @@ def to_camel_case(underscore_str):
     # # 이미 camel이라면 바로 출력
     if len(seq)==1 and seq[0]!='':
         return underscore_str
-
+        
+    # camel이 아니라면
     for word in seq:
         if word !='':
             if camelcase_str:
