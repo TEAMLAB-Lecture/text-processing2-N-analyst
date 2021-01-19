@@ -73,12 +73,12 @@ def to_camel_case(underscore_str):
             "alreadyCamel"
     """
     camelcase_str = []
-
-    for word in underscore_str.split('_'):
+    seq=underscore_str.strip('_').split('_')
+    for word in seq:
         if word !='':
             if camelcase_str:
                 camelcase_str.append(word.capitalize())
             # 첫 단어 일때
             else:
-                camelcase_str.append(word[0].lower()+word[1:])
+                camelcase_str.append(word.lower())
     return ''.join(camelcase_str)
