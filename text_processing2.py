@@ -76,8 +76,8 @@ def to_camel_case(underscore_str):
     camelcase_str = []
     seq=underscore_str.strip('_').split('_')
     # # 이미 camel이라면 바로 출력
-    # if len(seq)==1 and seq[0]!='':
-    #     return underscore_str
+    if len(seq)==1 and seq[0]!='':
+        return underscore_str
 
     for word in seq:
         if word !='':
