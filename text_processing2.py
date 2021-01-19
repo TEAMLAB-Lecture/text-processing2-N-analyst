@@ -33,7 +33,7 @@ def digits_to_words(input_string):
     digit='0123456789'
 
     for s in input_string:
-        for s in digit:
+        if s in digit:
             digit_string+=digit_strlist[int(s)]+' '
     
     # 마지막 공백 제거
@@ -76,10 +76,9 @@ def to_camel_case(underscore_str):
 
     for word in underscore_str.split('_'):
         if word !='':
-            camelcase_str.append(word.capitalize())
-
-    # 첫번째 단어는 소문자로만 구성
-    if camelcase_str:
-        camelcase_str[0]=camelcase_str[0].lower()
-
+            if camelcase_str:
+                camelcase_str.append(word.capitalize())
+            # 첫 단어 일때
+            else:
+                camelcase_str.append(word[0].lower()+word[1:])
     return ''.join(camelcase_str)
