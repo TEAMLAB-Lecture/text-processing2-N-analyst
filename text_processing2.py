@@ -28,8 +28,16 @@ def digits_to_words(input_string):
             >>> tp2.digits_to_words(digits_str2)
             'three one four one five'
     """
-    digit_string = None
-    return digit_string
+    digit_string = ''
+    digit_strlist=['zero','one','two','three','four','five','six','seven','eight','nine']
+    digit='0123456789'
+
+    for s in input_string:
+        if s in digit:
+            digit_string+=digit_strlist[int(s)]+' '
+    
+    # 마지막 공백 제거
+    return digit_string[:-1]
 
 
 """
@@ -64,5 +72,19 @@ def to_camel_case(underscore_str):
             >>> tp2.to_camel_case(underscore_str3)
             "alreadyCamel"
     """
-    camelcase_str = None
-    return camelcase_str
+
+    camelcase_str = []
+    seq=underscore_str.strip('_').split('_')
+    # # 이미 camel이라면 바로 출력
+    if len(seq)==1 and seq[0]!='':
+        return underscore_str
+        
+    # camel이 아니라면
+    for word in seq:
+        if word !='':
+            if camelcase_str:
+                camelcase_str.append(word.capitalize())
+            # 첫 단어 일때
+            else:
+                camelcase_str.append(word.lower())
+    return ''.join(camelcase_str)
